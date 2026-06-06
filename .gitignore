@@ -1,0 +1,24 @@
+# Dataset — too large for GitHub (download from Kaggle separately)
+consumer_complaints.csv
+*.csv
+
+# Virtual environment
+.venv/
+
+# Generated figures
+*.png
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+*.iml
