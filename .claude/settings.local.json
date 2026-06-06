@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(\"/Users/rafaelsanchezrey/Documents/AIProgram/Module2 - ML with Python/EDA-notebook-Disputes/.venv/bin/pip\" list)",
-      "Bash(\"/Users/rafaelsanchezrey/Documents/AIProgram/Module2 - ML with Python/EDA-notebook-Disputes/.venv/bin/python3\" -m pip list)",
-      "Bash(\"/Users/rafaelsanchezrey/Documents/AIProgram/Module2 - ML with Python/EDA-notebook-Disputes/.venv/bin/pip\" install pandas numpy matplotlib seaborn jupyter notebook ipykernel scipy)"
-    ]
-  }
-}

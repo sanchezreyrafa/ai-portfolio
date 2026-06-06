@@ -22,3 +22,6 @@ __pycache__/
 # IDE
 .idea/
 *.iml
+
+# Claude Code local settings
+.claude/
