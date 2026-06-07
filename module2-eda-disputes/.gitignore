@@ -1,6 +1,7 @@
 # Dataset — too large for GitHub (download from Kaggle separately)
-consumer_complaints.csv
-*.csv
+data/*.csv
+data/*.json
+*.zip
 
 # Virtual environment
 .venv/
