@@ -16,7 +16,7 @@ Source: US Consumer Finance Complaints — CFPB via Kaggle
 Download: https://www.kaggle.com/datasets/kaggle/us-consumer-finance-complaints
 
 **Original Dataset size:** 560.8 MB → 555,957 rows × 18 columns
-**Final Dataset size:** 30.6 MB → 64,388 rows × 11 columns
+**Final Dataset size:** 22.9 MB → 64,388 rows × 9 columns
 **CSV read time:** ~1.5s
 
 ## How to run it
@@ -30,9 +30,9 @@ Download: https://www.kaggle.com/datasets/kaggle/us-consumer-finance-complaints
 
 **Memory footprint:**
 - Raw load: 560.8 MB (555,957 rows × 18 columns, all `object` dtype strings)
-- After filtering to credit card complaints and dropping 7 zero-signal columns: 30.6 MB (64,388 rows × 11 columns) — an ~18x reduction
+- After filtering to credit card complaints and dropping zero-signal/leakage columns: 22.9 MB (64,388 rows × 9 columns) — an ~24x reduction
 - Row reduction driven by product filter (credit card only) and data cleaning (null removal, outlier removal on `response_days`)
-- Column reduction from dropping fields with >80% nulls that were not captured for credit card complaints
+- Column reduction from dropping fields with >80% nulls not captured for credit card complaints, an identifier with no signal (`complaint_id`), and two columns with data leakage (`company_response_to_consumer`, `timely_response`) — generated after the company processes the complaint, so unavailable at prediction time
 
 **I/O:**
 - CSV read time: ~1.5s — acceptable for a 560 MB file at this scale
