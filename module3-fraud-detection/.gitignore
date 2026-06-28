@@ -1,4 +1,5 @@
 data/*.csv
+data/*.parquet
 *.zip
 __pycache__/
 *.pyc

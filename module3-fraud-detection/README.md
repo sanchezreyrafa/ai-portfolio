@@ -37,3 +37,28 @@
 - The identity file is 14x smaller than the transaction file, confirming that
   ~75% of transactions have no associated identity data — reinforcing the
   decision to create the `has_identity` binary feature.
+
+## Project Structure
+
+```
+module3-fraud-detection/
+├── data/
+│   ├── train_identity.csv              # Identity data set
+│   ├── train_transaction.csv           # Transaction data set
+├── notebooks/
+│   ├── 01_eda.ipynb                    # Exploratory Data Analysis
+│   ├── 02_preprocessing.ipynb          # Feature engineering & data preparation
+│   ├── 03_training.ipynb               # Model training & evaluation
+│   └── 04_model_comparison.ipynb       # XGBoost vs Neural Network comparison
+├── src/
+│   ├── preprocessing.py                # Reusable preprocessing pipeline
+│   └── serving/
+│       └── main.py                     # FastAPI inference endpoint
+├── adrs/
+│   ├── 001_join_strategy.md
+│   ├── 002_chronological_split.md
+│   └── 003_model_selection.md
+├── docs/
+│   └── cost_analysis.md
+└── README.md
+```
