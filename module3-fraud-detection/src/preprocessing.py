@@ -15,6 +15,19 @@ def high_corr_list(feature_group: dict, df: pd.DataFrame) -> set :
                     cols_to_drop.add(cols[j])
     return cols_to_drop
 
+def encode_boolean_known_features(df, features, true_value):
+    for feat in features :
+        df[f'{feat}_known'] = df[f'{feat}'].notna()
+        df[f'{feat}_value'] = df[f'{feat}'] == true_value
+        df.drop(columns=[f'{feat}'], inplace=True)
+    return df
+
+def encode_simple_boolean_features(df, features, true_value):
+    for feat in features :
+        df[f'{feat}_value'] = df[f'{feat}'] == true_value
+        df.drop(columns=[f'{feat}'], inplace=True)
+    return df
+
 def encode_m_features(df: pd.DataFrame) -> pd.DataFrame:
     for i in range(1,10) :
         if i != 4 :
@@ -58,6 +71,15 @@ def extract_browser(browser_info):
     if 'chrome' in browser_info:
         return 'chrome'
     return 'other'
+
+def encode_tf_features(df, features):
+    for feat in features:
+        df[feat] = df[feat].map({'T': True, 'F': False})
+    return df
+
+def encode_match_status(df, column='id_34'):
+    df[column] = pd.to_numeric(df[column].str.split(':').str[-1], errors='coerce')
+    return df
 
 def extract_os(device_info):
     if pd.isna(device_info):

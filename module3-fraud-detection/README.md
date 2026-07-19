@@ -1,5 +1,10 @@
 # IEEE-CIS Fraud Detection — Module 3
 
+## Prerequisites
+- Python 3.x
+- Homebrew (macOS only)
+- OpenMP (macOS only): `brew install libomp`
+
 ## Dataset
 - Source: IEEE-CIS Fraud Detection — Vesta Corporation / Kaggle Competition
 - Files: train_transaction.csv + train_identity.csv
