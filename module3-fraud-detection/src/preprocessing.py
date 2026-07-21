@@ -74,7 +74,7 @@ def extract_browser(browser_info):
 
 def encode_tf_features(df, features):
     for feat in features:
-        df[feat] = df[feat].map({'T': True, 'F': False})
+        df[feat] = df[feat].map({'T': True, 'F': False}).astype('boolean')
     return df
 
 def encode_match_status(df, column='id_34'):
