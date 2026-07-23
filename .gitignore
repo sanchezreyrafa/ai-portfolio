@@ -2,6 +2,11 @@
 consumer_complaints.csv
 *.csv
 
+# Trained model artifacts — reproducible by rerunning 03_training.ipynb
+*.json
+*.ubj
+*.pkl
+
 # Virtual environment
 .venv/
 

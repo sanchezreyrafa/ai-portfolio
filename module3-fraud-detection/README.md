@@ -47,14 +47,16 @@
 
 ```
 module3-fraud-detection/
-├── data/
-│   ├── train_identity.csv              # Identity data set
-│   ├── train_transaction.csv           # Transaction data set
+├── data/                               # gitignored — download from Kaggle
+│   ├── train_identity.csv
+│   ├── train_transaction.csv
+├── models/                             # gitignored — reproducible via 03_training.ipynb
+│   ├── model.json                      # Trained XGBoost model
+│   └── feature_columns.json           # Feature list & order expected by the model
 ├── notebooks/
 │   ├── 01_eda.ipynb                    # Exploratory Data Analysis
 │   ├── 02_preprocessing.ipynb          # Feature engineering & data preparation
 │   ├── 03_training.ipynb               # Model training & evaluation
-│   └── 04_model_comparison.ipynb       # XGBoost vs Neural Network comparison
 ├── src/
 │   ├── preprocessing.py                # Reusable preprocessing pipeline
 │   └── serving/
