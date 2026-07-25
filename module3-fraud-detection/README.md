@@ -69,3 +69,12 @@ module3-fraud-detection/
 │   └── cost_analysis.md
 └── README.md
 ```
+
+
+Create src/serving/main.py
+Define the input schema — what fields does a transaction have?
+Load the model on startup
+Create a /predict endpoint that receives a transaction and returns a fraud probability
+Apply the preprocessing pipeline to the input before prediction
+Return the prediction with the fraud probability and the binary decision based on threshold t=0.3
+Test the endpoint manually with a sample transaction
