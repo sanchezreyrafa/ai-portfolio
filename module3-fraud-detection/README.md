@@ -4,6 +4,7 @@
 - Python 3.x
 - Homebrew (macOS only)
 - OpenMP (macOS only): `brew install libomp`
+- API dependencies: `pip install fastapi uvicorn xgboost pandas scikit-learn`
 
 ## Dataset
 - Source: IEEE-CIS Fraud Detection — Vesta Corporation / Kaggle Competition
@@ -70,6 +71,16 @@ module3-fraud-detection/
 └── README.md
 ```
 
+### Generate the model
+Before running the API, you need to train the model:
+1. Run `notebooks/01_eda.ipynb` — generates `data/merged.parquet`
+2. Run `notebooks/02_preprocessing.ipynb` — generates train/val/test parquet files
+3. Run `notebooks/03_training.ipynb` — generates `models/model.json`
+
+### Run the API
+```bash
+uvicorn src.api.main:app --reload
+```
 
 Create src/serving/main.py
 Define the input schema — what fields does a transaction have?
