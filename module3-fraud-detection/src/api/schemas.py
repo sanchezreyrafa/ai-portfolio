@@ -1,8 +1,9 @@
 import json
+from pathlib import Path
 from pydantic import BaseModel, create_model
 from typing import Optional
 
-_SCHEMA_PATH = '../models/schema.json'
+_SCHEMA_PATH = Path(__file__).parent.parent.parent / 'models' / 'schema.json'
 
 
 def create_request_model():

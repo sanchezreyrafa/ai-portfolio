@@ -81,6 +81,10 @@ def encode_match_status(df, column='id_34'):
     df[column] = pd.to_numeric(df[column].str.split(':').str[-1], errors='coerce')
     return df
 
+def derive_has_identity(df, source_col='id_01'):
+    df['has_identity'] = df[source_col].notnull().astype(int)
+    return df
+
 def extract_os(device_info):
     if pd.isna(device_info):
         return 'unknown'
