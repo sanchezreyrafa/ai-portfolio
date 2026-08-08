@@ -5,4 +5,10 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 models/*.json
+# Exception: these three are committed as fixtures so CI can run
+# test_pipeline.py / test_predict_endpoint.py without regenerating
+# the full pipeline. Still reproducible via the notebooks — see README.
+!models/model.json
+!models/schema.json
+!models/cols_to_drop.json
 .pytest_cache/

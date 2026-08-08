@@ -1,0 +1,28 @@
+name: module3-fraud-detection tests
+
+on:
+  push:
+    paths:
+      - 'module3-fraud-detection/**'
+      - '.github/workflows/module3-fraud-detection-tests.yml'
+  pull_request:
+    paths:
+      - 'module3-fraud-detection/**'
+      - '.github/workflows/module3-fraud-detection-tests.yml'
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: module3-fraud-detection
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - run: pip install -r requirements.txt
+
+      - run: pytest
