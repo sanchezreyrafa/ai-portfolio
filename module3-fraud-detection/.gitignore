@@ -4,3 +4,5 @@ data/*.parquet
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+models/*.json
+.pytest_cache/
