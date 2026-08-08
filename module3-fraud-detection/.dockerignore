@@ -1,0 +1,14 @@
+data/
+notebooks/
+tests/
+adrs/
+docs/
+.pytest_cache/
+__pycache__/
+**/__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.git/
+requirements.txt
+README.md

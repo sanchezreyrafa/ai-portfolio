@@ -1,0 +1,8 @@
+# Runtime deps for src/api only. Used directly by the Docker image, and
+# pulled into requirements.txt via `-r` so there's one source of truth.
+fastapi==0.140.0
+uvicorn==0.51.0
+pydantic==2.13.4
+xgboost==3.3.0
+pandas==3.0.3
+numpy==2.4.6

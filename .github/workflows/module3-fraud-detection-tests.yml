@@ -26,3 +26,13 @@ jobs:
       - run: pip install -r requirements.txt
 
       - run: pytest
+
+  docker-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: module3-fraud-detection
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: docker build -t module3-fraud-detection-api .
