@@ -18,13 +18,24 @@ from preprocessing import (
 
 THRESHOLD = 0.3
 
-_COLS_TO_DROP_PATH = Path(__file__).parent.parent.parent / 'models' / 'cols_to_drop.json'
+_MODELS_DIR = Path(__file__).parent.parent.parent / 'models'
 
-with open(_COLS_TO_DROP_PATH) as f:
+with open(_MODELS_DIR / 'cols_to_drop.json') as f:
     _COLS_TO_DROP: list[str] = json.load(f)
+
+with open(_MODELS_DIR / 'schema.json') as f:
+    _NUMERIC_COLUMNS = [col for col, dtype in json.load(f).items() if dtype in ('float64', 'int64')]
 
 
 def _preprocess(df: pd.DataFrame) -> pd.DataFrame:
+    # A single-row request DataFrame infers 'object' dtype for any numeric field
+    # that's null, since a lone None can't be inferred as float/int. Coerce these
+    # explicitly so they become proper NaN-bearing numeric columns instead of
+    # falling into the object dtype bucket.
+    for col in _NUMERIC_COLUMNS:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
     # Create derived features before their source columns are dropped
     if 'id_01' in df.columns and 'has_identity' not in df.columns:
         df = derive_has_identity(df)
@@ -54,10 +65,6 @@ def _preprocess(df: pd.DataFrame) -> pd.DataFrame:
     df = encode_match_status(df)
     df = encode_tf_features(df, ['id_35', 'id_36', 'id_37', 'id_38'])
     df = encode_card_features(df, 'M4', ['M0', 'M1', 'M2'], False)
-
-    # Cast remaining object columns to category so XGBoost handles them correctly
-    for col in df.select_dtypes(include='object').columns:
-        df[col] = df[col].astype('category')
 
     return df
 
