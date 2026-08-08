@@ -1,0 +1,19 @@
+# API
+fastapi==0.140.0
+uvicorn==0.51.0
+pydantic==2.13.4
+xgboost==3.3.0
+pandas==3.0.3
+numpy==2.4.6
+
+# notebooks (EDA, preprocessing, training)
+scikit-learn==1.9.0
+matplotlib==3.10.9
+seaborn==0.13.2
+pyarrow==24.0.0
+ipykernel==7.2.0
+nbconvert==7.17.1
+
+# dev / test
+pytest==9.1.1
+httpx==0.28.1
